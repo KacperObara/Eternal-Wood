@@ -44,8 +44,7 @@ public class GManager : MonoBehaviour
     {
         ReservedTrees.Remove(tree);
         tree.GetComponent<Animator>().SetTrigger("Death");
-        //Destroy(tree.gameObject);
-        if (ReservedTrees.Count <= 1 && Trees.Count <= 1 && ending == false)
+        if (Trees.Count + ReservedTrees.Count <= GetComponent<VillageManager>().Residents.Count && ending == false)
         {
             OnTreesDestroyed();
         }

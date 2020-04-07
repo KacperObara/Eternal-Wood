@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,8 +14,11 @@ public class DeathManager : MonoBehaviour
     public TextMeshProUGUI EndText;
     public TextMeshProUGUI ScoreText;
 
+    public GameObject GamePanel;
+
     public void UpdateText(int textIndex)
     {
+        GamePanel.SetActive(false);
         if (textIndex == 0)
         {
             ScoreText.text = GameObject.FindGameObjectWithTag("GameManager").GetComponent<VillageManager>().Wood.ToString();
@@ -34,6 +38,7 @@ public class DeathManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("Game");
+        Application.LoadLevel(Application.loadedLevel);
+        //SceneManager.LoadScene("Game");
     }
 }

@@ -13,4 +13,19 @@ public class MainMenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public GameObject Instructions;
+    public GameObject Menu;
+
+    public void ShowInstructions()
+    {
+        Instructions.SetActive(true);
+        Menu.SetActive(false);
+    }
+
+    public void HideInstructions()
+    {
+        Instructions.SetActive(false);
+        Menu.SetActive(true);
+    }
 }
